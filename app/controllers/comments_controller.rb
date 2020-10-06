@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-  def index; end
+  def index
+    @comments = Comment.all.page(params[:page]).per(5)
+  end
 
   def create
     if signed_in?
@@ -17,6 +19,7 @@ class CommentsController < ApplicationController
       redirect_to login_path
     end
   end
+
 
   def destroy
     @comment.destroy

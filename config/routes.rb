@@ -9,10 +9,12 @@ Rails.application.routes.draw do
     delete 'signout' => 'devise/sessions#destroy'
     get '/users/sign_out' => 'devise/sessions#destroy'
     resources :users, only: [:show] do
+      resources :orders,only: %i[show index]
       resources :comments
-      resources :orders
+      
     end
   end
+  resources :menus
   resources :categories, only: %i[show index] do
     resources :dishes, only: %i[show index]
   end

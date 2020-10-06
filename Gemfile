@@ -11,7 +11,8 @@ gem 'carrierwave'
 gem 'chosen-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'rails_admin'
-gem 'will_paginate', '~> 3.0.4'
+gem 'kaminari'
+gem 'ransack'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

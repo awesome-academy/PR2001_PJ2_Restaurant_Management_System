@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :set_menu, except: %i[index new create]
-  before_action :set_user, except: [:show]
+  # before_action :set_order, only: [ :show ]
+  # before_action :set_user
+  
 
   def index
-    @orders = Order.paginate(page: params[:page], per_page: 10)
+    @orders = Order.all
   end
 
   def show; end
@@ -52,13 +53,13 @@ class OrdersController < ApplicationController
 
   private
 
-  def set_order
-    @order = Order.find(params[:id])
-  end
+  # def set_order
+  #   @order = Order.find(params[:id])
+  # end
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
+  # def set_user
+  #   @user = User.find(params[:user_id])
+  # end
 
   def order_params
     params.require(:order).permit :name
