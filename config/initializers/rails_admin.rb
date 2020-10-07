@@ -55,10 +55,11 @@ RailsAdmin.config do |config|
         field :image_dish
       end
 
-      field :name
-      field :money
-      field :category
-      field :image_dish
+        field :name
+        field :money
+        field :category
+        field :image_dish
+      
     end
 
     config.model 'Order' do
@@ -69,8 +70,6 @@ RailsAdmin.config do |config|
         hide
       end
 
-      config.model 'Category' do
-      end
     end
   end
 end

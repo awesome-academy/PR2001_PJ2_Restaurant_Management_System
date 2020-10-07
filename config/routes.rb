@@ -11,18 +11,20 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
     resources :users, only: [:show] do
       resources :comments
-      resources :orders
     end
   end
+
   resources :categories, only: %i[show index] do
     resources :dishes, only: %i[show index]
   end
+
+  resources :orders
 
   resources :dishes, except: :index do
     resources :images, only: %i[show index]
     resources :comments, only: :index
   end
   resources :reviews
-
+  resources :menus
   resources :tables
 end
